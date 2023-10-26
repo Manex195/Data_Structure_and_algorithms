@@ -1,10 +1,17 @@
-import java.util.*;
-
 public class Main {
     public static void main(String[] args) {
-        ex_stack theStack = new ex_stack();
+        // stack test...
+        ArrayStack<String> theStack = new ArrayStack<String>(10);
         theStack.push("Hello");
         theStack.push("greetings");
-        System.out.println(theStack.pop());
+        for (String s : theStack) {
+            System.out.println(s);
+        }
+        // queue test...
+        queue q = new queue();
+        q.enQueue(5);
+        q.enQueue(12);
+        q.enQueue(25);
+        System.out.println(q.deQueue());
     }
 }
