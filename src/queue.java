@@ -36,3 +36,33 @@ public class queue<T> implements Iterable<T> {
         return element;
     }
 }
+
+
+class ArrayQueue<T> implements Iterable<T> {
+    private T[] Qarr;
+    private int N;
+    private int F;
+    public Iterator<T> iterator() { return new ArrayQueueIterator(); }
+
+    private class ArrayQueueIterator implements Iterator<T> {
+        private int curr = F;
+        public boolean hasNext() { return curr != N; }
+        public void remove() { /* If we need to */ }
+        public T next() {
+            return Qarr[++curr];
+        }
+    }
+    public ArrayQueue(int capacity) {
+        Qarr = (T[]) new Object[capacity];
+        N = F = -1;
+    }
+    public boolean isEmpty() {
+        return N == F;
+    }
+    public void push(T item) {
+        Qarr[++N] = item;
+    }
+    public T pop() {
+        return Qarr[++F];
+    }
+}
